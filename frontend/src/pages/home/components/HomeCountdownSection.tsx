@@ -17,7 +17,7 @@ const heroImages = [hero10, hero09, hero08, hero07, hero06, hero05, hero04, hero
 const targetDate = new Date("2026-03-28T07:00:00");
 const HERO_ROTATION_MS = 6500;
 const HOME_VIDEO_EMBED_URL =
-    "https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&mute=1&controls=1&loop=1&playlist=aqz-KE-bpKQ&playsinline=1&rel=0";
+    "https://www.youtube.com/embed/oJLpiaUG57Q?autoplay=1&mute=1&controls=1&loop=1&playlist=oJLpiaUG57Q&playsinline=1&rel=0";
 
 const HomeCountdownSection = () => {
     const [activeImage, setActiveImage] = useState(0);
@@ -128,14 +128,15 @@ const HomeCountdownSection = () => {
                 <div className="home-countdown__video-wrap">
                     {shouldLoadVideo ? (
                         <iframe
-                            src={HOME_VIDEO_EMBED_URL}
-                            title="Video giới thiệu CSE Job Fair"
+                            height="900"
+                            width="506.25"
                             className="home-countdown__video"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                        />
+                            src={HOME_VIDEO_EMBED_URL}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen>
+                        </iframe>
                     ) : (
                         <div className="home-countdown__video-placeholder">Video giới thiệu CSE Job Fair 2026</div>
                     )}
