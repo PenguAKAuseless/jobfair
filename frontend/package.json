@@ -1,6 +1,6 @@
 {
-  "name": "jf-local-frontend",
-  "description": "Frontend for CSE Job Fair 2026 check-in and lucky draw experience.",
+  "name": "jf-frontend",
+  "description": "Frontend for CSE Job Fair 2026.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,7 +19,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.1",
-    "utils": "^0.3.1"
+    "utils": "^0.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

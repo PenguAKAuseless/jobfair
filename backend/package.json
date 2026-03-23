@@ -1,7 +1,7 @@
 {
-    "name": "jf-local-backend",
+    "name": "jf-backend",
     "version": "0.0.0",
-    "description": "Backend API for CSE Job Fair 2026 check-in and lucky draw data.",
+    "description": "Backend API for CSE Job Fair 2026.",
     "private": true,
     "type": "module",
     "scripts": {
