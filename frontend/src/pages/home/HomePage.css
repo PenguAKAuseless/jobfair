@@ -1,0 +1,10 @@
+.home-page {
+    min-height: 100vh;
+}
+
+.home-page__main {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding-top: 78px;
+    padding-bottom: 1rem;
+}

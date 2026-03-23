@@ -2,7 +2,7 @@
 
 Monorepo includes:
 
-- `frontend`: React + TypeScript + Vite application.
+- `frontend`: React + TypeScript + Vite public website.
 - `backend`: Express + TypeScript API with PostgreSQL.
 
 Current version for both apps is `0.0.0`.
@@ -19,8 +19,8 @@ Current version for both apps is `0.0.0`.
    - `npm run start`
 3. Frontend:
    - `cd frontend`
-   - `copy .env.example .env`
    - `npm install`
+   - `npm run dev`
    - `npm run build`
 
 ## Validation Commands
@@ -28,6 +28,11 @@ Current version for both apps is `0.0.0`.
 - `cd frontend && npm run lint`
 - `cd frontend && npm run build`
 - `cd backend && npm run build`
+
+## Frontend Routes
+
+- `/`: Home page
+- `/register`: Register page
 
 ## API Routes
 

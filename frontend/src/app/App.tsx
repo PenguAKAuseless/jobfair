@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "../pages/home/HomePage";
+import RegisterPage from "../pages/register/RegisterPage";
 
 
 const NotFound = () => (
@@ -15,6 +16,8 @@ const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

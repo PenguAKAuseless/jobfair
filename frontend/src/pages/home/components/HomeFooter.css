@@ -1,0 +1,83 @@
+.home-footer {
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+    background: #102446;
+    color: #f4f7fb;
+    padding: 1.3rem 1.3rem 1rem;
+}
+
+.home-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.5fr) minmax(180px, 1fr) minmax(240px, 1fr);
+    gap: 1.2rem;
+}
+
+.home-footer__brand-row {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.home-footer__logo {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.home-footer__subtitle {
+    margin-top: 0.2rem;
+    color: rgba(244, 247, 251, 0.72);
+    font-size: 0.78rem;
+}
+
+.home-footer__title {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.1rem;
+}
+
+.home-footer__text {
+    margin: 0.55rem 0 0;
+    color: rgba(244, 247, 251, 0.8);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-footer__contact-list {
+    min-width: 240px;
+}
+
+.home-footer__links {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.home-footer__links a {
+    color: rgba(244, 247, 251, 0.78);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.home-footer__links a:hover {
+    color: #ffffff;
+}
+
+.home-footer__copyright {
+    margin-top: 1rem;
+    border-top: 1px solid rgba(244, 247, 251, 0.12);
+    padding-top: 0.8rem;
+    color: rgba(244, 247, 251, 0.56);
+    font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+    .home-footer__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .home-footer__contact-list {
+        min-width: 0;
+    }
+}

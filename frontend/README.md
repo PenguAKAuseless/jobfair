@@ -1,29 +1,29 @@
 # CSE Job Fair 2026 Frontend
 
-React + TypeScript + Vite frontend for check-in and lucky draw experiences.
-
-Version: `0.0.0`.
+React + TypeScript + Vite frontend for the public event website.
 
 ## Commands
 
+- `npm install`
+- `npm run dev`
 - `npm run lint`
 - `npm run build`
 
-## Environment
+## Routing
 
-- Copy `.env.example` to `.env`.
-- Set `VITE_API_BASE_URL` when API is not `http://localhost:4000/api`.
+- `/`: Home page
+- `/register`: Register page
 
-## Features
+## Structure
 
-- Check-in submits to `POST /api/checkins`.
-- Counter syncs from `GET /api/checkins/summary`.
-- Lucky draw candidates load from `GET /api/students`.
+- `src/pages/home`: Home page and its page-only components
+- `src/pages/register`: Register page and its local styles
+- `src/components/layout`: Shared layout components used by multiple pages
+- `src/index.css`: Global base styles only
 
-## Main Folders
+## Styling Rules
 
-- `src/app/checkin`
-- `src/app/checkin/components`
-- `src/app/luckydraw`
-- `src/app/services`
-- `src/assets`
+- Tailwind was removed.
+- Use plain CSS files placed near each page or component.
+- Use prefixed class names per page/component scope.
+- Keep only truly global styles in `src/index.css`.
