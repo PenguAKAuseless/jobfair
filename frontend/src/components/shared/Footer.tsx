@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const quickLinks = [
@@ -27,9 +28,9 @@ const Footer = () => {
                 <div className="shared-footer__links">
                     <p className="shared-footer__heading">TRUY CẬP NHANH</p>
                     {quickLinks.map((item) => (
-                        <a key={item.label} href={item.href} className="shared-footer__link">
+                        <Link key={item.label} to={item.href} className="shared-footer__link">
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
                 </div>
 

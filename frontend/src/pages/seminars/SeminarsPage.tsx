@@ -16,6 +16,7 @@ type Seminar = {
 };
 
 const seminarVenue = "Phòng 609, Tòa BK.B6, Trường ĐH Bách khoa - ĐHQG-HCM (Cơ sở 2)";
+const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}`;
 
 const seminars: Seminar[] = [
     {
@@ -26,8 +27,8 @@ const seminars: Seminar[] = [
         registrationUrl: "https://bit.ly/Seminar-ANDPAD",
         description:
             "Phiên hội thảo công nghệ và định hướng việc làm dành cho sinh viên, tập trung vào hành trình phát triển nghề nghiệp từ fresher đến kỹ sư toàn cầu.",
-        heroImage: "/seminar-photo/1/hero.jpg",
-        popupImage: "/seminar-photo/1/sub.jpg",
+        heroImage: "seminar-photo/1/hero.jpg",
+        popupImage: "seminar-photo/1/sub.jpg",
     },
     {
         id: 2,
@@ -37,8 +38,8 @@ const seminars: Seminar[] = [
         registrationUrl: "https://bit.ly/Seminar-ISB",
         description:
             "Phiên chia sẻ về kinh nghiệm thực tế trong quá trình chuyển mình từ sinh viên sang lập trình viên chuyên nghiệp.",
-        heroImage: "/seminar-photo/2/hero.jpg",
-        popupImage: "/seminar-photo/2/sub.jpg",
+        heroImage: "seminar-photo/2/hero.jpg",
+        popupImage: "seminar-photo/2/sub.jpg",
     },
     {
         id: 3,
@@ -48,8 +49,8 @@ const seminars: Seminar[] = [
         registrationUrl: "https://bit.ly/Seminar-WorldQuant",
         description:
             "Phiên giới thiệu các cơ hội học tập và nghề nghiệp trong lĩnh vực tài chính định lượng cùng WorldQuant.",
-        heroImage: "/seminar-photo/3/hero.jpg",
-        popupImage: "/seminar-photo/3/sub.jpg",
+        heroImage: "seminar-photo/3/hero.jpg",
+        popupImage: "seminar-photo/3/sub.jpg",
     },
     {
         id: 4,
@@ -59,8 +60,8 @@ const seminars: Seminar[] = [
         registrationUrl: "https://bit.ly/Seminar-TCData",
         description:
             "Phiên hội thảo dự kiến với trọng tâm định hướng nghề nghiệp và cập nhật bức tranh công nghệ dành cho sinh viên.",
-        heroImage: "/seminar-photo/4/hero.jpg",
-        popupImage: "/seminar-photo/4/sub.jpg",
+        heroImage: "seminar-photo/4/hero.jpg",
+        popupImage: "seminar-photo/4/sub.jpg",
     },
 ];
 
@@ -106,7 +107,7 @@ const SeminarsPage = () => {
                         <div className="seminars-page__grid">
                             {seminars.map((seminar) => (
                                 <article key={seminar.id} className="seminars-page__card">
-                                    <img className="seminars-page__image" src={seminar.heroImage} alt={`Ảnh seminar ${seminar.company}`} />
+                                    <img className="seminars-page__image" src={withBase(seminar.heroImage)} alt={`Ảnh seminar ${seminar.company}`} />
                                     <h2>{seminar.title}</h2>
                                     <p className="seminars-page__meta">{seminar.period}</p>
                                     <p className="seminars-page__meta">Đơn vị: {seminar.company}</p>
@@ -134,7 +135,7 @@ const SeminarsPage = () => {
                             <X size={18} />
                         </button>
 
-                        <img className="seminars-page__modal-image" src={selectedSeminar.popupImage} alt={`Ảnh chi tiết seminar ${selectedSeminar.company}`} />
+                        <img className="seminars-page__modal-image" src={withBase(selectedSeminar.popupImage)} alt={`Ảnh chi tiết seminar ${selectedSeminar.company}`} />
                         <h3>{selectedSeminar.title}</h3>
                         <p>{selectedSeminar.period}</p>
                         <p>Đơn vị: {selectedSeminar.company}</p>
