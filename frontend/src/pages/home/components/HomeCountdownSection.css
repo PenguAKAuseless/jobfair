@@ -56,6 +56,10 @@
     line-height: 1.2;
 }
 
+.home-countdown__title-line {
+    display: block;
+}
+
 .home-countdown__brand-row {
     display: inline-flex;
     align-items: center;
@@ -103,7 +107,7 @@
 .home-countdown__timer-label {
     display: block;
     margin-top: 0.4rem;
-    color: #677a92;
+    color: #1f3652;
     font-size: 0.64rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -111,7 +115,7 @@
 
 .home-countdown__actions {
     display: flex;
-    align-items: ce nter;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 0;

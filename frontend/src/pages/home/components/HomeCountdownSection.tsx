@@ -107,7 +107,10 @@ const HomeCountdownSection = () => {
                         <img src={brandMarkSrc} alt="" className="home-countdown__brand-mark" />
                     </div>
 
-                    <h1 className="home-countdown__title">SỰ KIỆN SẼ BẮT ĐẦU SAU</h1>
+                    <h1 className="home-countdown__title">
+                        <span className="home-countdown__title-line">SỰ KIỆN</span>
+                        <span className="home-countdown__title-line">SẼ BẮT ĐẦU SAU</span>
+                    </h1>
 
                     <div className="home-countdown__timer">
                         {countdownItems.map((item) => (
@@ -120,7 +123,7 @@ const HomeCountdownSection = () => {
 
                     <div className="home-countdown__actions">
                         <Link to="/register" className="home-countdown__register-btn">
-                            ĐĂNG KÝ
+                            ĐĂNG KÝ NGAY
                         </Link>
                     </div>
                 </div>

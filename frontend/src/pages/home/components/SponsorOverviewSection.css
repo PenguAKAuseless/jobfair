@@ -40,7 +40,7 @@
     margin: 0;
     color: #29466c;
     line-height: 1.45;
-    max-width: 46ch;
+    max-width: 70ch;
 }
 
 .home-sponsor-overview__hero-logo {
@@ -72,6 +72,13 @@
     line-height: 1.12;
 }
 
+.home-sponsor-overview__tier-name--annual {
+    color: #6e85a2;
+    font-size: clamp(1.8rem, 3.1vw, 2.45rem);
+    letter-spacing: 0.1em;
+    line-height: 1.08;
+}
+
 .home-sponsor-overview__tier-logos {
     --logo-gap: clamp(0.7rem, 1.4vw, 1rem);
     display: flex;
@@ -87,9 +94,32 @@
     min-width: min(170px, 100%);
     max-width: 240px;
     min-height: 88px;
+    position: relative;
     display: grid;
     place-items: center;
     padding: 0.5rem 0.75rem;
+}
+
+.home-sponsor-overview__logo-spot-name {
+    position: absolute;
+    left: 50%;
+    bottom: -0.15rem;
+    transform: translate(-50%, 6px);
+    background: rgba(22, 48, 78, 0.92);
+    color: #ffffff;
+    padding: 0.2rem 0.46rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    line-height: 1.1;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.home-sponsor-overview__tier-logo-item:hover .home-sponsor-overview__logo-spot-name {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 .home-sponsor-overview__tier-logos img {
