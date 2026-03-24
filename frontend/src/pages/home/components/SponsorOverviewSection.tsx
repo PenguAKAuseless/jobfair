@@ -13,6 +13,8 @@ const tiers: Tier[] = [
     { name: "Đồng", content: "bronze" },
 ];
 
+const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}`;
+
 const SponsorOverviewSection = () => {
     return (
         <section id="sponsors" className="home-sponsor-overview">
@@ -29,7 +31,7 @@ const SponsorOverviewSection = () => {
                             Kết nối với các công ty hàng đầu và khám phá cơ hội nghề nghiệp tại sự kiện việc làm lớn nhất của khoa.
                         </p>
                     </div>
-                    <img src="/CSExJF.png" alt="CSE Job Fair" className="home-sponsor-overview__hero-logo" />
+                    <img src={withBase("CSExJF.png")} alt="CSE Job Fair" className="home-sponsor-overview__hero-logo" />
                 </motion.div>
 
                 <div className="home-sponsor-overview__tiers">
@@ -45,36 +47,36 @@ const SponsorOverviewSection = () => {
                             <p className="home-sponsor-overview__tier-name">{tier.name}</p>
                             {tier.content === "diamond" && (
                                 <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--diamond">
-                                    <img src="/VNG.png" alt="VNG" />
-                                    <img src="/KMS.png" alt="KMS" />
-                                    <img src="/NVIDIA2.png" alt="NVIDIA" />
+                                    <img src={withBase("VNG.png")} alt="VNG" />
+                                    <img src={withBase("KMS.png")} alt="KMS" />
+                                    <img src={withBase("NVIDIA2.png")} alt="NVIDIA" />
                                 </div>
                             )}
 
                             {tier.content === "gold" && (
                                 <div className="home-sponsor-overview__tier-rows">
                                     <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row-3">
-                                        <img src="/FS.png" alt="FPT Software" />
-                                        <img src="/SACOM.png" alt="Sacombank" />
+                                        <img src={withBase("FS.png")} alt="FPT Software" />
+                                        <img src={withBase("SACOM.png")} alt="Sacombank" />
                                     </div>
                                     <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row">
-                                        <img src="/Veri.png" alt="Veri Silicon" />
-                                        <img src="/ISB.png" alt="ISB" />
-                                        <img src="/Nexon.png" alt="Nexon" />
+                                        <img src={withBase("Veri.png")} alt="Veri Silicon" />
+                                        <img src={withBase("ISB.png")} alt="ISB" />
+                                        <img src={withBase("Nexon.png")} alt="Nexon" />
                                     </div>
                                 </div>
                             )}
 
                             {tier.content === "silver" && (
                                 <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--silver">
-                                    <img src="/GL.png" alt="Gameloft" />
+                                    <img src={withBase("GL.png")} alt="Gameloft" />
                                 </div>
                             )}
 
                             {tier.content === "bronze" && (
                                 <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--bronze">
-                                    <img src="/FJ.png" alt="Fujinet" />
-                                    <img src="/BV.png" alt="BV" />
+                                    <img src={withBase("FJ.png")} alt="Fujinet" />
+                                    <img src={withBase("BV.png")} alt="BV" />
                                 </div>
                             )}
 

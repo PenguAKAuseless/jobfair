@@ -11,46 +11,48 @@ type Sponsor = {
     websiteUrl: string;
 };
 
+const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}`;
+
 const sponsors: Sponsor[] = [
     {
         id: 1,
         name: "NVIDIA",
-        image: "/NVIDIA2.png",
+        image: withBase("NVIDIA2.png"),
         description: "NVIDIA dẫn dắt làn sóng AI toàn cầu với nền tảng tính toán hiệu năng cao.",
         websiteUrl: "https://www.nvidia.com",
     },
     {
         id: 2,
         name: "VNG",
-        image: "/VNG.png",
+        image: withBase("VNG.png"),
         description: "VNG là một trong những doanh nghiệp công nghệ tiêu biểu với hệ sinh thái số đa dạng.",
         websiteUrl: "https://vng.com.vn",
     },
     {
         id: 3,
         name: "KMS",
-        image: "/KMS.png",
+        image: withBase("KMS.png"),
         description: "KMS tập trung phát triển sản phẩm phần mềm và nuôi dưỡng kỹ sư theo chuẩn quốc tế.",
         websiteUrl: "https://kms-technology.com",
     },
     {
         id: 4,
         name: "FPT Software",
-        image: "/FS.png",
+        image: withBase("FS.png"),
         description: "FPT Software có mạng lưới triển khai toàn cầu và môi trường kỹ thuật quy mô lớn.",
         websiteUrl: "https://fptsoftware.com",
     },
     {
         id: 5,
         name: "Sacombank",
-        image: "/SACOM.png",
+        image: withBase("SACOM.png"),
         description: "Sacombank đẩy mạnh chuyển đổi số và nhiều vị trí công nghệ trong lĩnh vực tài chính.",
         websiteUrl: "https://www.sacombank.com.vn",
     },
     {
         id: 6,
         name: "Veri Silicon",
-        image: "/Veri.png",
+        image: withBase("Veri.png"),
         description: "Veri Silicon là doanh nghiệp nổi bật trong thiết kế vi mạch và giải pháp bán dẫn.",
         websiteUrl: "https://www.verisilicon.com",
     },

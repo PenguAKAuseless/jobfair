@@ -21,6 +21,7 @@ const homeItems: NavItem[] = [
 const registerItem: NavItem = { label: "Đăng ký", href: "/register" };
 
 const Navbar = () => {
+    const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,7 +43,7 @@ const Navbar = () => {
         <header className="shared-navbar">
             <div className="shared-navbar__inner">
                 <Link to="/" className="shared-navbar__brand" onClick={closeMenu}>
-                    <img src="/logo.png" alt="CSE Job Fair" className="shared-navbar__logo" />
+                    <img src={logoSrc} alt="CSE Job Fair" className="shared-navbar__logo" />
                     <span className="shared-navbar__title">CSE JOB FAIR 2026</span>
                 </Link>
 

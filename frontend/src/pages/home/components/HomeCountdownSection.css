@@ -1,6 +1,9 @@
 .home-countdown {
     position: relative;
     background: var(--surface-base);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 .home-countdown__hero {
@@ -142,19 +145,20 @@
 
 .home-countdown__video-wrap {
     width: 100%;
-    height: 100%;
+    height: calc(100dvh - var(--navbar-height));
+    max-height: calc(100dvh - var(--navbar-height));
     position: relative;
     z-index: 1;
     overflow: hidden;
-    display: grid;
-    place-items: center;
-    padding: 2rem;
+    padding: 0;
 }
 
 .home-countdown__video-section {
     position: relative;
-    height: calc(100dvh - var(--navbar-height));
-    min-height: calc(100dvh - var(--navbar-height));
+    width: 100%;
+    max-width: 100%;
+    background: #000;
+    overflow: hidden;
 }
 
 .home-countdown__video {
@@ -162,9 +166,7 @@
     width: 100%;
     height: 100%;
     border: 0;
-    max-width: 900px;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .home-countdown__video-placeholder {
@@ -197,7 +199,12 @@
     }
 
     .home-countdown__video-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .home-countdown__video-wrap {
         height: calc(100dvh - var(--navbar-height));
-        min-height: calc(100dvh - var(--navbar-height));
+        max-height: calc(100dvh - var(--navbar-height));
     }
 }
