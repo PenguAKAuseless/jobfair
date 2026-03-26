@@ -34,11 +34,7 @@ const BrandAssetsPage = () => {
                 <section className="brand-assets-page__section">
                     <div className="brand-assets-page__container">
                         <section className="brand-assets-page__hero">
-                            <p className="brand-assets-page__eyebrow">Brand Guideline</p>
                             <h1>Bộ nhận diện thương hiệu CSE JOB FAIR 2026</h1>
-                            <p>
-                                Trang guideline tổng hợp logo, font chữ, lưới an toàn và bảng màu chính thức để sử dụng nhất quán.
-                            </p>
                         </section>
 
                         <section className="brand-assets-page__sheet" aria-label="Nội dung guideline thương hiệu">
