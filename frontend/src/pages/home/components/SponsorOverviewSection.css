@@ -15,7 +15,7 @@
 
 .home-sponsor-overview__intro {
     display: grid;
-    grid-template-columns: 1.2fr 0.9fr;
+    grid-template-columns: 7.5fr 2.5fr;
     gap: clamp(1rem, 3vw, 2rem);
     align-items: center;
     padding: clamp(1.1rem, 2.6vw, 1.6rem) clamp(1.1rem, 2.8vw, 1.8rem);
@@ -40,7 +40,8 @@
     margin: 0;
     color: #29466c;
     line-height: 1.45;
-    max-width: 70ch;
+    width: auto;
+    text-align: justify;
 }
 
 .home-sponsor-overview__hero-logo {
