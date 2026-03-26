@@ -17,6 +17,19 @@
     font-size: clamp(1.25rem, 2.8vw, 2rem);
     color: var(--text-main);
     font-family: var(--font-display);
+    position: relative;
+    padding-left: 0.72rem;
+}
+
+.home-milestones__title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.08em;
+    bottom: 0.08em;
+    width: 4px;
+    border-radius: 999px;
+    background: var(--accent-orange);
 }
 
 .home-milestones__intro {

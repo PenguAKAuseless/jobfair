@@ -1,3 +1,8 @@
+export type PartnerDocument = {
+    label: string;
+    docUrl: string;
+};
+
 export type Partner = {
     id: number;
     name: string;
@@ -5,10 +10,37 @@ export type Partner = {
     description: string;
     websiteUrl: string;
     recruitmentNews: string[];
+    documents: PartnerDocument[];
+};
+
+type RawPartner = Omit<Partner, "documents"> & {
     documents: string[];
 };
 
-export const partners: Partner[] = [
+const extractDocument = (entry: string): PartnerDocument => {
+    const trimmed = entry.trim();
+    const urlMatch = trimmed.match(/https?:\/\/\S+/);
+
+    if (!urlMatch) {
+        return {
+            label: trimmed,
+            docUrl: trimmed,
+        };
+    }
+
+    const docUrl = urlMatch[0];
+    const label = trimmed
+        .replace(docUrl, "")
+        .replace(/[\s:;-]+$/, "")
+        .trim();
+
+    return {
+        label: label.length > 0 ? label : docUrl,
+        docUrl,
+    };
+};
+
+const rawPartners: RawPartner[] = [
     {
         id: 1,
         name: "C\u00F4ng ty KMS Technology",
@@ -207,7 +239,7 @@ export const partners: Partner[] = [
         recruitmentNews: [
             "10 Hardware Design Intern",
             "3rd or final year students majoring in Electronics, Telecommunications, Mechatronics, Automation, Computer Science, Computer Engineering, Information Technology, Mathematics, and Physics.",
-            "Good at English in writing and speaking skills, distinguished competence, consistent pursuit of excellence, professional behavior, and good relationships with others and society.", 
+            "Good at English in writing and speaking skills, distinguished competence, consistent pursuit of excellence, professional behavior, and good relationships with others and society.",
             "Have a strong passion in the technical field, especially in chip design.",
             "Have logical thinking and explanation; be serious and mature in working attitude Long- term working commitment",
         ],
@@ -576,3 +608,8 @@ export const partners: Partner[] = [
         ],
     },
 ];
+
+export const partners: Partner[] = rawPartners.map((partner) => ({
+    ...partner,
+    documents: partner.documents.map(extractDocument),
+}));

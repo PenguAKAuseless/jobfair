@@ -396,10 +396,10 @@ const SponsorDetailSection = () => {
                             <div className="home-partners__modal-block">
                                 <p className="home-partners__modal-label">Tài liệu liên quan</p>
                                 <ul>
-                                    {selectedPartner.documents.map((url) => (
-                                        <li key={url}>
-                                            <a href={url} target="_blank" rel="noopener noreferrer">
-                                                {url}
+                                    {selectedPartner.documents.map((document) => (
+                                        <li key={`${document.docUrl}-${document.label}`}>
+                                            <a href={document.docUrl} target="_blank" rel="noopener noreferrer">
+                                                {document.label}
                                             </a>
                                         </li>
                                     ))}
