@@ -28,7 +28,7 @@ const partnerLogoScaleByFile: Record<string, number> = {
     "GIHOT.png": 1.6,
     "IVC.png": 1.04,
     "IVS.png": 2,
-    "NASHTECH.png": 1.42,
+    "NASHTECH.png": 1.2,
     "PSD.png": 1.1,
     "SVC.png": 2,
     "ZIGEXN.png": 1.6,

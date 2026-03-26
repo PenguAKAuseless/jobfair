@@ -37,9 +37,9 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
 
         const fov = THREE.MathUtils.degToRad(camera.fov);
         const fitDistance = sphere.radius / Math.tan(fov / 2);
-        const forwardDistance = Math.max(size.z * 0.95, fitDistance * 1.05);
+        const forwardDistance = Math.max(size.z * 1.05, fitDistance * 1.08);
         const eyeY = center.y;
-        const targetY = center.y - 2;
+        const targetY = center.y;
 
         camera.position.set(center.x, eyeY, center.z + forwardDistance);
         camera.lookAt(center.x, targetY, center.z);
@@ -57,8 +57,8 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
 
         hoverBlend.current = THREE.MathUtils.damp(hoverBlend.current, isHovered ? 1 : 0, 7, delta);
 
-        const nextPointerY = isHovered ? THREE.MathUtils.clamp(state.pointer.x * 0.16, -0.16, 0.16) : 0;
-        const nextPointerZ = isHovered ? THREE.MathUtils.clamp(-state.pointer.y * 0.16, -0.16, 0.16) : 0;
+        const nextPointerY = isHovered ? THREE.MathUtils.clamp(state.pointer.x * 0.12, -0.12, 0.12) : 0;
+        const nextPointerZ = isHovered ? THREE.MathUtils.clamp(-state.pointer.y * 0.08, -0.08, 0.08) : 0;
 
         pointerY.current = THREE.MathUtils.damp(pointerY.current, nextPointerY, 9, delta);
         pointerZ.current = THREE.MathUtils.damp(pointerZ.current, nextPointerZ, 9, delta);
@@ -69,9 +69,9 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
         targetY.current = THREE.MathUtils.damp(targetY.current, desiredY, 11, delta);
         targetZ.current = THREE.MathUtils.damp(targetZ.current, desiredZ, 11, delta);
 
-        groupRef.current.rotation.x = THREE.MathUtils.degToRad(45);
+        groupRef.current.rotation.x = THREE.MathUtils.damp(groupRef.current.rotation.x, targetZ.current, 12, delta);
         groupRef.current.rotation.y = THREE.MathUtils.damp(groupRef.current.rotation.y, targetY.current, 12, delta);
-        groupRef.current.rotation.z = THREE.MathUtils.damp(groupRef.current.rotation.z, targetZ.current, 12, delta);
+        groupRef.current.rotation.z = 0;
     });
 
     return (
@@ -97,6 +97,8 @@ const VenueMapSection = ({ modelUrl, is3dReady, is3dFailed, retryLabel }: VenueM
     const staticMapUrl = `${import.meta.env.BASE_URL}Map2D.png`;
     const canUse3d = !is3dFailed;
     const effectiveMode: "2d" | "3d" = mapMode === "3d" && !canUse3d ? "2d" : mapMode;
+    const is3dInteractive = effectiveMode === "3d" && is3dReady;
+    const effectiveHover = is3dInteractive && isHovered;
 
     const onFitCamera = (view: { position: THREE.Vector3; target: THREE.Vector3 }) => {
         if (!controlsRef.current) {
@@ -117,7 +119,6 @@ const VenueMapSection = ({ modelUrl, is3dReady, is3dFailed, retryLabel }: VenueM
 
                 <div
                     className="home-map__viewer"
-                    onPointerEnter={() => setIsHovered(true)}
                     onPointerLeave={() => setIsHovered(false)}
                 >
                     <button
@@ -144,7 +145,14 @@ const VenueMapSection = ({ modelUrl, is3dReady, is3dFailed, retryLabel }: VenueM
                         <img className="home-map__image" src={staticMapUrl} alt="Bản đồ 2D khu vực sự kiện" loading="lazy" />
                     </div>
 
-                    <div className={`home-map__layer home-map__layer--3d ${effectiveMode === "3d" && is3dReady ? "is-active" : ""}`}>
+                    <div
+                        className={`home-map__layer home-map__layer--3d ${effectiveMode === "3d" && is3dReady ? "is-active" : ""}`}
+                        onPointerEnter={() => {
+                            if (is3dInteractive) {
+                                setIsHovered(true);
+                            }
+                        }}
+                    >
                         {is3dReady && (
                             <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
                                 <ambientLight intensity={0.6} />
@@ -157,17 +165,17 @@ const VenueMapSection = ({ modelUrl, is3dReady, is3dFailed, retryLabel }: VenueM
                                         </Html>
                                     }
                                 >
-                                    <InteractiveModel url={modelUrl} isHovered={isHovered} onFitCamera={onFitCamera} />
+                                    <InteractiveModel url={modelUrl} isHovered={effectiveHover} onFitCamera={onFitCamera} />
                                     <Environment preset="city" />
                                 </Suspense>
 
                                 <OrbitControls
                                     ref={controlsRef}
                                     enablePan={false}
-                                    minPolarAngle={THREE.MathUtils.degToRad(80)}
-                                    maxPolarAngle={THREE.MathUtils.degToRad(85)}
-                                    minDistance={1.5}
-                                    maxDistance={22}
+                                    minPolarAngle={THREE.MathUtils.degToRad(45)}
+                                    maxPolarAngle={THREE.MathUtils.degToRad(96)}
+                                    minDistance={1.2}
+                                    maxDistance={12}
                                     makeDefault
                                 />
                             </Canvas>

@@ -56,7 +56,7 @@ const seminars: Seminar[] = [
         id: 4,
         session: "Buổi chiều",
         date: "22/03/2026",
-        company: "Công ty TNHH TC Data",
+        company: "Công ty TNHH TC DATA",
         title: "Hội thảo công nghệ và định hướng việc làm cho sinh viên",
         description:
             "Phiên hội thảo với trọng tâm định hướng nghề nghiệp và cập nhật bức tranh công nghệ dành cho sinh viên.",

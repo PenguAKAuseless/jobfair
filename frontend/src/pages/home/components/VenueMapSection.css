@@ -23,7 +23,6 @@
 .home-map__intro {
     margin: 0.7rem 0 0;
     color: var(--text-muted);
-    max-width: 760px;
 }
 
 .home-map__viewer {
